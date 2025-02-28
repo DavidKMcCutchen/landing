@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Versa Digital Solutions | Coming Soon</title>
+    <style>
+        :root {
+            --primary-color: #007BFF;
+            --secondary-color: #6610F2;
+            --text-color: #333;
+            --text-light: #fff;
+            --background-color: #f8f9fa;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background: var(--background-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .hero {
+            position: relative;
+            max-width: 800px;
+            padding: 50px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--text-light);
+            border-radius: 15px;
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            animation: fadeIn 1.2s ease-in-out;
+        }
+
+        .hero-logo {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .hero-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .highlight {
+            color: var(--secondary-color);
+            background: var(--text-light);
+            padding: 0 8px;
+            border-radius: 5px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+
+        .hero-cta {
+            margin-top: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            font-size: 1rem;
+            font-weight: bold;
+            color: var(--text-light);
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .btn:hover {
+            background: rgba(255, 255, 255, 0.4);
+        }
+
+        .wave {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 80px;
+            background: url('https://cdn.jsdelivr.net/gh/kjbrum/animated-css-waves/wave.svg');
+            background-size: cover;
+            animation: waveAnimation 6s infinite linear;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes waveAnimation {
+            0% { background-position-x: 0px; }
+            100% { background-position-x: 800px; }
+        }
+
+        @media (max-width: 600px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            .btn {
+                font-size: 0.9rem;
+                padding: 10px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <div class="hero-logo">Versa Digital Solutions</div>
+        <h1 class="hero-title">We're <span class="highlight">Building Something Amazing</span></h1>
+        <p class="hero-subtitle">Our site is under development. Stay tuned for cutting-edge digital solutions.</p>
+        <div class="hero-cta">
+            <a href="mailto:contact@versadigitalsolutions.com" class="btn">Contact Us</a>
+        </div>
+        <div class="wave"></div>
+    </div>
+</body>
+</html>
