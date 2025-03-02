@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Versa Digital Solutions | Coming Soon</title>
+  <title>Versa Digital Solutions | Innovative Digital Solutions</title>
 
   <!-- Global Styles (Dark Theme Applied via data-theme="dark") -->
   <style>
@@ -42,8 +42,6 @@
 
     html {
       scroll-behavior: smooth;
-      height: 100%;
-      overflow: hidden; /* Disable scrolling on the html element */
     }
 
     body {
@@ -51,12 +49,6 @@
       background-color: var(--background-color);
       color: var(--text-color);
       line-height: 1.6;
-      transition: background-color var(--transition-speed), color var(--transition-speed);
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden; /* Disable scrolling on the body element */
     }
 
     h1, h2, h3, h4, h5, h6 {
@@ -104,6 +96,10 @@
       padding: 5rem 0;
     }
 
+    .text-center {
+      text-align: center;
+    }
+
     .btn {
       display: inline-block;
       padding: 0.75rem 1.5rem;
@@ -140,10 +136,7 @@
       box-shadow: 0 4px 8px var(--shadow-color);
     }
 
-    .text-center {
-      text-align: center;
-    }
-
+    /* Animation Classes */
     .fade-in {
       opacity: 0;
       transform: translateY(20px);
@@ -177,7 +170,39 @@
       transform: translateX(0);
     }
 
-    /* Responsive styles */
+    /* Hero Section Styles */
+    .hero {
+      text-align: center;
+      padding: 2rem;
+      min-height: 100vh; /* Full viewport height */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    /* Services Section Styles */
+    .services {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .service-item {
+      flex: 1 1 250px;
+      background-color: var(--background-secondary);
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px var(--shadow-color);
+      text-align: center;
+      transition: transform var(--transition-speed);
+    }
+
+    .service-item:hover {
+      transform: translateY(-5px);
+    }
+
+    /* Responsive Styles */
     @media (max-width: 992px) {
       h1 {
         font-size: 2.5rem;
@@ -223,41 +248,83 @@
         padding: 0 1rem;
       }
     }
-
-    /* Hero Section Styles */
-    .hero {
-      text-align: center;
-      width: 100%;
-      max-width: 700px;
-      margin: auto;
-      padding: 2rem;
-    }
-    .hero h1 {
-      margin-bottom: 1rem;
-      color: var(--text-color);
-    }
-    .hero p {
-      margin-bottom: 2rem;
-    }
   </style>
 </head>
 <body>
-  <!-- Simple Hero Section Centered on a Black Background -->
-  <div class="hero fade-in" id="hero">
-    <h1>Versa Digital Solutions</h1>
-    <p>We’re building something amazing! Stay tuned for cutting-edge digital solutions.</p>
-    <a href="mailto:david.mccutchen@versadigital.io" class="btn btn-primary">Contact Us</a>
-  </div>
+  <!-- Hero Section -->
+  <section class="hero fade-in" id="hero">
+    <div class="container">
+      <h1>Versa Digital Solutions</h1>
+      <p>Cutting-edge digital solutions in Web Development, Mobile Apps, AI Integration, and Customized Power Apps.</p>
+      <a href="mailto:david.mccutchen@versadigital.io" class="btn btn-primary">Contact Us</a>
+    </div>
+  </section>
 
-  <!-- Simple script to make the .fade-in element visible on load -->
+  <!-- Services Section -->
+  <section class="section fade-in" id="services">
+    <div class="container text-center">
+      <h2>Our Services</h2>
+      <p>We specialize in delivering innovative digital solutions tailored to your business needs.</p>
+      <div class="services">
+        <div class="service-item slide-in-left">
+          <h3>Web Development</h3>
+          <p>Responsive and modern web applications that scale.</p>
+        </div>
+        <div class="service-item slide-in-right">
+          <h3>Mobile App Development</h3>
+          <p>Native and cross-platform mobile solutions for your business.</p>
+        </div>
+        <div class="service-item slide-in-left">
+          <h3>AI Integration</h3>
+          <p>Intelligent systems to automate and enhance your operations.</p>
+        </div>
+        <div class="service-item slide-in-right">
+          <h3>Power Apps Development</h3>
+          <p>Highly customized solutions using Microsoft Power Apps.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="section fade-in" id="about">
+    <div class="container">
+      <h2 class="text-center">About Us</h2>
+      <p>
+        At Versa Digital Solutions, we blend creativity with technology to provide our clients with state-of-the-art digital solutions.
+        Our team of experts is committed to delivering quality and innovation in every project.
+      </p>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="section fade-in" id="contact">
+    <div class="container text-center">
+      <h2>Contact Us</h2>
+      <p>Ready to take your business to the next level? Get in touch with us.</p>
+      <a href="mailto:david.mccutchen@versadigital.io" class="btn btn-primary">Email Us</a>
+    </div>
+  </section>
+
+  <!-- JavaScript for Scroll Animations -->
   <script>
-    window.addEventListener('DOMContentLoaded', () => {
-      document.getElementById('hero').classList.add('visible');
+    document.addEventListener("DOMContentLoaded", function() {
+      const observerOptions = { threshold: 0.1 };
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+      
+      // Observe all elements with animation classes
+      const animatedElements = document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right');
+      animatedElements.forEach(el => observer.observe(el));
     });
+    
     console.log('Hello curious people using devtools =)');
   </script>
 </body>
 </html>
-
-
-
